@@ -1,0 +1,1765 @@
+[
+  {
+    "name": "Kath_VT_Chir_Ablatie_AF",
+    "order": 11,
+    "cols_to_change": [
+      "kreatinine_gehalte"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      },
+      {
+        "col": "VT_ablatie",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Kath_VT_Chir_Ablatie_AF",
+    "order": 12,
+    "cols_to_change": [
+      "LVEF"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      },
+      {
+        "col": "VT_ablatie",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Kath_Chir_Ablatie_AF",
+    "order": 13,
+    "cols_to_change": [
+      "grootte_atrium"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Kath_Chir_Ablatie_AF",
+    "order": 14,
+    "cols_to_change": [
+      "VAS"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "vas",
+    "order": 14,
+    "cols_to_change": [
+      "leeftijd_vas"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "vas",
+    "order": 14,
+    "cols_to_change": [
+      "congestief_hf_lv_dysfunctie_vas"
+    ],
+    "lookup_conditions": [
+            {
+        "col": "kath_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "vas",
+    "order": 14,
+    "cols_to_change": [
+      "hypertensie_vas"
+    ],
+    "lookup_conditions": [
+            {
+        "col": "kath_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "vas",
+    "order": 14,
+    "cols_to_change": [
+      "leeftijd_vas"
+    ],
+    "lookup_conditions": [
+            {
+        "col": "kath_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "vas",
+    "order": 14,
+    "cols_to_change": [
+      "diabetes_vas"
+    ],
+    "lookup_conditions": [
+            {
+        "col": "kath_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "vas",
+    "order": 14,
+    "cols_to_change": [
+      "cva_tia_tromboembolie_vas"
+    ],
+    "lookup_conditions": [
+            {
+        "col": "kath_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "vas",
+    "order": 14,
+    "cols_to_change": [
+      "vaatlijden_vas"
+    ],
+    "lookup_conditions": [
+            {
+        "col": "kath_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "vas",
+    "order": 14,
+    "cols_to_change": [
+      "geslacht_vas"
+    ],
+    "lookup_conditions": [
+            {
+        "col": "kath_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Ablatie_Eerder",
+    "order": 15,
+    "cols_to_change": [
+      "ablatie_eerder"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      },
+      {
+        "col": "kath_ablatieAT",
+        "comparison": "==",
+        "values": [
+          0, -1
+        ]
+      },
+      {
+        "col": "flutter_ablatie",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "VT_Ablatie",
+    "order": 16,
+    "cols_to_change": [
+      "ablatie_VT_eerder"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "VT_ablatie",
+        "comparison": "==",
+        "values": [
+          0, -1
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Kath_Chir_Ablatie_AF",
+    "order": 17,
+    "cols_to_change": [
+      "patroon_AF"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Klinische_Setting_AT1",
+    "order": 18,
+    "cols_to_change": ["klinische_setting_AT"],
+    "lookup_conditions": [
+      {"col": "kath_ablatieAT", "comparison": "==", "values": [0]}
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Klinische_Setting_AT2",
+    "order": 18,
+    "cols_to_change": ["klinische_setting_AT"],
+    "lookup_conditions": [
+      {"col": "kath_ablatieAT", "comparison": "!=", "values": [0]},
+      {"col": "klinische_setting_AT", "comparison": "==", "values": [30]}
+    ],
+    "future_value": "30_Na chirurgie in atrium"
+  },
+  {
+    "name": "Klinische_Setting_AT3",
+    "order": 18,
+    "cols_to_change": ["klinische_setting_AT"],
+    "lookup_conditions": [
+      {"col": "kath_ablatieAT", "comparison": "!=", "values": [0]},
+      {"col": "klinische_setting_AT", "comparison": "==", "values": [0]},
+      {"col": "ablatie_eerder", "comparison": "==", "values": [1]}
+    ],
+    "future_value": 20,
+    "future_value_label": "20_Na eerdere katheterablatie"
+  },
+  {
+    "name": "Klinische_Setting_AT4",
+    "order": 18,
+    "cols_to_change": ["klinische_setting_AT"],
+    "lookup_conditions": [
+      {"col": "kath_ablatieAT", "comparison": "!=", "values": [0]},
+      {"col": "klinische_setting_AT", "comparison": "==", "values": [0]},
+      {"col": "ablatie_eerder", "comparison": "!=", "values": [1]}
+    ],
+    "future_value": "10_Spontaan"
+  },
+
+  {
+    "name": "VT_Ablatie",
+    "order": 19,
+    "cols_to_change": [
+      "type_hartlijden"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "VT_ablatie",
+        "comparison": "==",
+        "values": [
+          0, -1
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "VT_Ablatie",
+    "order": 20,
+    "cols_to_change": [
+      "ICD_aanwezig"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "VT_ablatie",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "VT_Ablatie",
+    "order": 21,
+    "cols_to_change": [
+      "amiodarone"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "VT_ablatie",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "VT_Ablatie",
+    "order": 22,
+    "cols_to_change": [
+      "indicatie_VT"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "VT_ablatie",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+    {
+  "name": "Interv_Afgebroken",
+  "order": 24,
+  "cols_to_change": [
+    "his_ablatie",
+    "flutter_ablatie",
+    "AVNRT_ablatie",
+    "acc_verb_ablatie",
+    "kath_ablatieAF",
+    "kath_abatieAf_aanv",
+    "chir_ablatieAF",
+    "kath_ablatieAT",
+    "VES_ablatie",
+    "VT_ablatie",
+    "VT_ablatie_endo",
+    "VT_ablatie_epi",
+    "VT_induceerbaar",
+    "cardiac_assist_device",
+    "ablatie_overig",
+    "kath_ablatie_methode"
+  ],
+  "lookup_conditions": [
+    {"col": "interv_afgebroken", "comparison": "==", "values": [1]}
+  ],
+  "future_value": 0
+}
+,
+    {
+    "name": "Interv_Afgebroken_Reden",
+    "order": 25,
+    "cols_to_change": [
+      "interv_afgebroken_reden"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "interv_afgebroken",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Geen_Kath_Ablatie_AF",
+    "order": 31,
+    "cols_to_change": [
+      "kath_ablatieAF_aanv"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "!=",
+        "values": [
+          1
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "VT_Ablatie",
+    "order": 38,
+    "cols_to_change": [
+      "VT_induceerbaar"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "VT_ablatie",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "VT_Ablatie",
+    "order": 39,
+    "cols_to_change": [
+      "cardiac_assist_device"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "VT_ablatie",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+ {
+  "name": "Ablatie_Overig",
+  "order": 40,
+  "cols_to_change": ["ablatie_overig"],
+  "lookup_conditions": [
+    {"col": "interv_afgebroken", "comparison": "==", "values": [0]},
+    {"col": "his_ablatie", "comparison": "==", "values": [0]},
+    {"col": "flutter_ablatie", "comparison": "==", "values": [0]},
+    {"col": "AVNRT_ablatie", "comparison": "==", "values": [0]},
+    {"col": "acc_verb_ablatie", "comparison": "==", "values": [0]},
+    {"col": "kath_ablatieAF", "comparison": "==", "values": [0]},
+    {"col": "kath_ablatieAF_aanv", "comparison": "==", "values": [0]},
+    {"col": "chir_ablatieAF", "comparison": "==", "values": [0]},
+    {"col": "kath_ablatieAT", "comparison": "==", "values": [0]},
+    {"col": "VES_ablatie", "comparison": "==", "values": [0]},
+    {"col": "VT_ablatie", "comparison": "==", "values": [0]},
+    {"col": "VT_ablatie_endo", "comparison": "==", "values": [0]},
+    {"col": "VT_ablatie_epi", "comparison": "==", "values": [0]},
+    {"col": "VT_induceerbaar", "comparison": "==", "values": [0]},
+    {"col": "cardiac_assist_device", "comparison": "==", "values": [0]},
+    {"col": "kath_ablatie_methode", "comparison": "==", "values": [0]}
+  ],
+  "future_value": 1
+},
+   {
+  "name": "Kath_Ablatie_Methode",
+  "order": 41,
+  "cols_to_change": ["kath_ablatie_methode"],
+  "lookup_conditions": [
+    {"col": "his_ablatie", "comparison": "==", "values": [0]},
+    {"col": "flutter_ablatie", "comparison": "==", "values": [0]},
+    {"col": "AVNRT_ablatie", "comparison": "==", "values": [0]},
+    {"col": "acc_verb_ablatie", "comparison": "==", "values": [0]},
+    {"col": "kath_ablatieAF", "comparison": "==", "values": [0]},
+    {"col": "kath_ablatieAT", "comparison": "==", "values": [0]},
+    {"col": "VES_ablatie", "comparison": "==", "values": [0]},
+    {"col": "VT_ablatie", "comparison": "==", "values": [0]}
+  ],
+  "future_value": ""
+},
+  {
+  "name": "Coronair_Spasme",
+  "order": 43,
+  "cols_to_change": ["coronair_spasme"],
+  "lookup_conditions": [
+    {"col": "kath_ablatie_methode",
+      "comparison": "!=",
+      "values": [70,71,72]}
+  ],
+  "future_value": ""
+},
+  {
+  "name": "Conversie_Sternotomie",
+  "order": 45,
+  "cols_to_change": ["conversie_sternotomie"],
+  "lookup_conditions": [
+    {"col": "chir_ablatieAF",
+      "comparison": "!=",
+      "values": [1]}
+  ],
+  "future_value": ""
+},
+  {
+    "name": "Kath_Chir_Ablatie_AF",
+    "order": 46,
+    "cols_to_change": [
+      "paralyse"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_VT_Ablatie",
+    "order": 52,
+    "cols_to_change": [
+      "VT_recidief"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "VT_ablatie",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_VT_Ablatie",
+    "order": 53,
+    "cols_to_change": [
+      "VT_recidief_datum"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "VT_ablatie",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 56,
+    "cols_to_change": [
+      "KvLAF_vraag1_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 57,
+    "cols_to_change": [
+      "KvLAF_vraag2_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 58,
+    "cols_to_change": [
+      "KvLAF_vraag3_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 59,
+    "cols_to_change": [
+      "KvLAF_vraag4_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 60,
+    "cols_to_change": [
+      "KvLAF_vraag5_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 61,
+    "cols_to_change": [
+      "KvLAF_vraag6_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 62,
+    "cols_to_change": [
+      "KvLAF_vraag7_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 63,
+    "cols_to_change": [
+      "KvLAF_vraag8_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 64,
+    "cols_to_change": [
+      "KvLAF_vraag9_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 65,
+    "cols_to_change": [
+      "KvLAF_vraag10_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 66,
+    "cols_to_change": [
+      "KvLAF_vraag11_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 67,
+    "cols_to_change": [
+      "KvLAF_vraag12_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 68,
+    "cols_to_change": [
+      "KvLAF_vraag13_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 69,
+    "cols_to_change": [
+      "KvLAF_vraag14_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 70,
+    "cols_to_change": [
+      "KvLAF_vraag15_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 71,
+    "cols_to_change": [
+      "KvLAF_vraag16_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 72,
+    "cols_to_change": [
+      "KvLAF_vraag17_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 73,
+    "cols_to_change": [
+      "KvLAF_vraag18_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 74,
+    "cols_to_change": [
+      "KvLAF_vraag19_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 75,
+    "cols_to_change": [
+      "KvLAF_vraag20_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 76,
+    "cols_to_change": [
+      "KvLAF_vraag21_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 77,
+    "cols_to_change": [
+      "KvLAF_vraag22_T0"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 78,
+    "cols_to_change": [
+      "KvLAF_vraag1_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 79,
+    "cols_to_change": [
+      "KvLAF_vraag2_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 80,
+    "cols_to_change": [
+      "KvLAF_vraag3_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 81,
+    "cols_to_change": [
+      "KvLAF_vraag4_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 82,
+    "cols_to_change": [
+      "KvLAF_vraag5_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 83,
+    "cols_to_change": [
+      "KvLAF_vraag6_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 84,
+    "cols_to_change": [
+      "KvLAF_vraag7_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 85,
+    "cols_to_change": [
+      "KvLAF_vraag8_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 86,
+    "cols_to_change": [
+      "KvLAF_vraag9_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 87,
+    "cols_to_change": [
+      "KvLAF_vraag10_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 88,
+    "cols_to_change": [
+      "KvLAF_vraag11_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 89,
+    "cols_to_change": [
+      "KvLAF_vraag12_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 90,
+    "cols_to_change": [
+      "KvLAF_vraag13_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 91,
+    "cols_to_change": [
+      "KvLAF_vraag14_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 92,
+    "cols_to_change": [
+      "KvLAF_vraag15_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 93,
+    "cols_to_change": [
+      "KvLAF_vraag16_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 94,
+    "cols_to_change": [
+      "KvLAF_vraag17_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 95,
+    "cols_to_change": [
+      "KvLAF_vraag18_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 96,
+    "cols_to_change": [
+      "KvLAF_vraag19_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 97,
+    "cols_to_change": [
+      "KvLAF_vraag20_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 98,
+    "cols_to_change": [
+      "KvLAF_vraag21_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "Rule_Kath_Chir_Ablatie_AF",
+    "order": 99,
+    "cols_to_change": [
+      "KvLAF_vraag22_T1"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "kath_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      },
+      {
+        "col": "chir_ablatieAF",
+        "comparison": "==",
+        "values": [
+          0
+        ]
+      }
+    ],
+    "future_value": ""
+  }
+]
