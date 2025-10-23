@@ -1,7 +1,8 @@
+import re
+import warnings
+
 import pandas as pd
 import xlwings as xw
-import warnings
-import re
 
 
 def prep_df(df: pd.DataFrame) -> pd.DataFrame:
@@ -27,15 +28,12 @@ def extract_exceptions_incremental(
     sheet_name: str = "Excepties",
     separate_export_path: str | None = None,
 ) -> pd.DataFrame:
-    """Extract rows where Origineel_resultaat == -1, process via prep_df, and incrementally
-    append to an existing Excel sheet without overwriting or duplicates."""
 
     id_cols = ['pat_nr', 'interv_nr', 'interv_datum']
     missing = [c for c in id_cols if c not in df.columns]
     if missing:
         raise ValueError(f"Input df missing required id columns: {missing}")
 
-    # Melt only the non-ID columns
     value_cols = [c for c in df.columns if c not in id_cols]
     melted = df.melt(
         id_vars=id_cols,
@@ -44,7 +42,7 @@ def extract_exceptions_incremental(
         value_name='Origineel_resultaat'
     )
 
-    # Filter only rows with -1
+    # Haal -1 eruit; de excepties
     is_exception = melted['Origineel_resultaat'].isin([-1, "-1"])
     result_df = melted.loc[is_exception].copy()
 
@@ -52,28 +50,27 @@ def extract_exceptions_incremental(
         print("Geen -1 excepties gevonden.")
         return pd.DataFrame()
 
-    # Warn if other negative values exist
     others = melted.loc[~is_exception & melted['Origineel_resultaat'].notna()]
     if not others.empty and (others['Origineel_resultaat'].astype(str).str.startswith('-').any()):
         warnings.warn("Andere exceptiewaarde dan -1 gedetecteerd (genegeerd).")
 
-    # --- Apply your prep_df function ---
+
     result_df = prep_df(result_df)
 
-    # Build IDvLookup and ensure correct structure
-    result_df['IDvLookup'] = result_df['interv_nr'].astype(str) + "_" + result_df['NHR_item']
+    # Maak correcte structuur aan
+    result_df['ID vLookup'] = result_df['interv_nr'].astype(str) + "_" + result_df['NHR_item']
     for col in ['Definitief_resultaat', 'Antwoord_mogelijkheden', 'Opmerking']:
         if col not in result_df.columns:
             result_df[col] = ''
 
     desired_cols = [
         'Key', 'logboeknr', 'interv_nr', 'interv_datum',
-        'pat_nr', 'IDvLookup', 'NHR_item', 'Origineel_resultaat',
+        'pat_nr', 'ID vLookup', 'NHR_item', 'Origineel_resultaat',
         'Definitief_resultaat', 'Antwoord_mogelijkheden', 'Opmerking'
     ]
     result_df = result_df[[c for c in desired_cols if c in result_df.columns]]
 
-    # --- Incremental append logic ---
+    # Hier begint het incrementeel inladen
     app = xw.App(visible=False, add_book=False)
     try:
         wb = xw.Book(existing_wb_path)
@@ -93,7 +90,7 @@ def extract_exceptions_incremental(
         else:
             existing_df = pd.DataFrame(columns=result_df.columns)
 
-        # Align and deduplicate by IDvLookup
+        # Haal duplicaten weg adhv IDvLookup
         for col in result_df.columns:
             if col not in existing_df.columns:
                 existing_df[col] = ''
@@ -101,7 +98,7 @@ def extract_exceptions_incremental(
             if col not in result_df.columns:
                 result_df[col] = ''
 
-        key_col = 'IDvLookup'
+        key_col = 'ID vLookup'
         if key_col in existing_df.columns:
             new_rows = result_df[~result_df[key_col].isin(existing_df[key_col])]
         else:
@@ -110,7 +107,7 @@ def extract_exceptions_incremental(
         if not new_rows.empty:
             combined = pd.concat([existing_df, new_rows], ignore_index=True)
             if not combined[key_col].is_unique:
-                raise Exception("IDvLookup niet uniek na samenvoegen.")
+                raise Exception("ID vLookup niet uniek na samenvoegen.")
 
             sheet.clear()
             sheet["A1"].value = combined
@@ -123,7 +120,7 @@ def extract_exceptions_incremental(
     finally:
         app.quit()
 
-    # --- Optional separate export ---
+
     if separate_export_path:
         result_df.to_excel(separate_export_path, sheet_name='Excepties', index=False)
 

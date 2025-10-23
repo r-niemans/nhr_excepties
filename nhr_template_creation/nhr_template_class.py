@@ -5,20 +5,25 @@
 import pandas as pd
 import re
 import json
-from nhr_rules_functie import apply_rule
-from excepties.excepties_functies import prep_df
+import sys
+from nhr_template_creation.nhr_rules_functie import apply_rule
 from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+
+from excepties.excp_pt3 import prep_df
+from openpyxl import load_workbook
 import numpy as np
 import xlwings as xw
 
 class NHRDataFrame:
-    def __init__(self, excel_input_path, excel_output_path):
+    def __init__(self, excel_input_path, excel_output_path, sheet_name):
         self.nhr_data = self._prep_nhr_template(excel_input_path)
         self.excel_output_path = excel_output_path
+        self.sheet_name = sheet_name
         self.log = []
 
     def _prep_nhr_template(self,input_path):
-        df = pd.read_excel(input_path, sheet_name="ABL_NHR")
+        df = pd.read_excel(input_path, sheet_name= self.sheet_name)
         self.nhr_template = df.copy().drop(
                             columns=['Status', 'Hoeveelheid afgerond',
                                     'ID','Register-ID'],
@@ -45,23 +50,21 @@ class NHRDataFrame:
 
         return self
 
-    def export_file(self):
-        excel_template_path = r"L:\CVPZ\CHVC\MANAGEMENT\BIM\Python_Programmas\ablaties\ABL_Epic_Verrichtingen_CAR.xlsx"
-        if self.nhr_data is not None:
-                wb = xw.Book(excel_template_path)
-                sheet_name = 'ABL NHR Template'
-                if sheet_name in [sheet.name for sheet in wb.sheets]:
-                    sheet = wb.sheets[sheet_name]
-                else:
-                    sheet = wb.sheets.add(sheet_name)  # voeg sheet toe, als die niet bestaat
-
-                sheet.range("A2").value = self.nhr_data
-
-                wb.save()
-                wb.close()
-       # if self.nhr_data is not None:
-       #     self.nhr_data.to_excel(self.excel_output_path, index=False)
-       #     print(f"Bestand opgeslagen: {self.excel_output_path}")
-        else:
+    def export_file(self, sheet_name):
+        if self.nhr_data is None:
             raise ValueError("Object is leeg")
+
+        output_path = Path(self.excel_output_path)
+
+    # als bestand al bestaat, laad het met openpyxl zodat andere sheets behouden blijven
+        if output_path.exists():
+            with pd.ExcelWriter(output_path, engine="openpyxl", mode="a", if_sheet_exists="replace") as writer:
+                self.nhr_data.to_excel(writer, sheet_name=sheet_name, index=False)
+        else:
+            with pd.ExcelWriter(output_path, engine="openpyxl") as writer:
+                self.nhr_data.to_excel(writer, sheet_name=sheet_name, index=False)
+            # if self.nhr_data is not None:
+            #     self.nhr_data.to_excel(self.excel_output_path, index=False)
+            #     print(f"Bestand opgeslagen: {self.excel_output_path}")
+
 

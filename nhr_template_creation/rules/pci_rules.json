@@ -1,0 +1,98 @@
+[
+  {
+    "name": "PCI_Rule_Dialyse",
+    "order": 1,
+    "cols_to_change": [
+      "kreatinine_gehalte"
+    ],
+    "lookup_conditions": [
+      {"col": "dialyse", "comparison": "==", "values": [1]}
+        ],
+    "future_value": ""
+  },
+    {
+    "name": "PCI_Rule_PCI_Indicatie",
+    "order": 2,
+    "cols_to_change": [
+      "LVEF"
+    ],
+    "lookup_conditions": [
+      {"col": "PCI_indicatie", "comparison": "==", "values": [20,30]}
+        ],
+    "future_value": ""
+  },
+  {
+    "name": "PCI_Rule_PCI_Indicatie",
+    "order": 3,
+    "cols_to_change": [
+      "shock"
+    ],
+    "lookup_conditions": [
+      {"col": "PCI_indicatie", "comparison": "==", "values": [10,11,12]},
+      {"col": "shock", "comparison": "!=", "values": [0]}
+        ],
+    "future_value": 0
+  },
+      {
+    "name": "PCI_Rule_CTO",
+    "order": 4,
+    "cols_to_change": [
+      "CTO"
+    ],
+    "lookup_conditions": [
+      {"col": "PCI_indicatie", "comparison": "==", "values": [20]},
+      {"col": "CTO", "comparison": "==", "values": [1]}
+
+        ],
+    "future_value": null
+  },
+  {
+    "name": "PCI_Rule_CTO",
+    "order": 5,
+    "cols_to_change": [
+      "CTO"
+    ],
+    "lookup_conditions": [
+      {"col": "PCI_indicatie", "comparison": "==", "values": [30]},
+      {"col": "CTO", "comparison": "==", "values": [1]},
+       {"col": "multiv", "comparison": "==", "values": [0]}
+
+        ],
+    "future_value": null
+  },
+  {
+    "name": "PCI_Rule_PCI_Indicatie",
+    "order": 6,
+    "cols_to_change": [
+      "OHCA"
+    ],
+    "lookup_conditions": [
+      {"col": "PCI_indicatie", "comparison": "==", "values": [10,11,12]},
+      {"col": "OHCA", "comparison": "!=", "values": [1]}
+        ],
+    "future_value": null
+  },
+  {
+    "name": "PCI_Rule_PCIteam",
+    "order": 7,
+    "cols_to_change": [
+      "PCI_team"
+    ],
+    "lookup_conditions": [
+      {"col": "zh_hartteam", "comparison": "==", "values": [1]},
+      {"col": "PCI_team", "comparison": "!=", "values": [0]}
+        ],
+    "future_value": 0
+  },
+  {
+    "name": "PCI_Rule_stent_impl",
+    "order": 8,
+    "cols_to_change": [
+      "stent_impl_code1"
+    ],
+    "lookup_conditions": [
+      {"col": "ingreep1", "comparison": "!=", "values": [20,21,22]}
+        ],
+    "future_value": ""
+  }
+]

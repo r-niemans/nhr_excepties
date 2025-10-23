@@ -1,0 +1,337 @@
+[
+  {
+    "name": "PMICD_Rule_ICD_Interventie",
+    "order": 1,
+    "cols_to_change": [
+      "ICD_preventie",
+      "ICD_PMfunctie"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "impl_device",
+        "comparison": "!=",
+        "values": [
+          20]
+      }
+        ],
+    "future_value": 0
+  },
+  {
+    "name": "PMICD_Rule_Pacemaker_Interventie_1",
+    "order": 2,
+    "cols_to_change": ["sinus_disfunctie", "AV_block", "hartfalen"],
+    "lookup_conditions": [
+      {"col": "impl_device", "comparison": "!=", "values": [10]},
+      {"col": "ICD_PMfunctie", "comparison": "!=", "values": [20]}
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "PMICD_Rule_Pacemaker_Interventie_2",
+    "order": 3,
+    "cols_to_change": ["sinus_disfunctie", "AV_block", "hartfalen"],
+    "lookup_conditions": [
+      {"col": "impl_device", "comparison": "!=", "values": [20]},
+      {"col": "ICD_PMfunctie", "comparison": "!=", "values": [20]}
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "PMICD_Rule_ICM_Interventie",
+    "order": 4,
+    "cols_to_change": [
+      "ICM_indicatie"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "impl_device",
+        "comparison": "!=",
+        "values": [
+          30]
+      }
+        ],
+    "future_value": 0
+  },
+  {
+    "name": "PMICD_Rule_Interventie_Afgebroken_type_ingreep_device",
+    "order": 5,
+    "cols_to_change": ["type_ingreep_device"],
+    "lookup_conditions": [
+      {"col": "interv_afgebroken", "comparison": "==", "values": [1]},
+      {"col": "type_ingreep_device", "comparison": "!=", "values": [0, ""]}
+    ],
+    "future_value": -1
+  },
+  {
+    "name": "PMICD_Rule_Interventie_Afgebroken_impl_device",
+    "order": 5,
+    "cols_to_change": ["impl_device"],
+    "lookup_conditions": [
+      {"col": "interv_afgebroken", "comparison": "==", "values": [1]},
+      {"col": "impl_device", "comparison": "!=", "values": [0,""]}
+    ],
+    "future_value": -1
+  },
+  {
+    "name": "PMICD_Rule_Interventie_Afgebroken_impl_device_code",
+    "order": 6,
+    "cols_to_change": ["impl_device_code"],
+    "lookup_conditions": [
+      {"col": "interv_afgebroken", "comparison": "==", "values": [1]},
+      {"col": "impl_device_code", "comparison": "!=", "values": [0, ""]}
+    ],
+    "future_value": -1
+  },
+  {
+    "name": "PMICD_Rule_Interventie_Afgebroken_terminatie_device",
+    "order": 7,
+    "cols_to_change": ["terminatie_device"],
+    "lookup_conditions": [
+      {"col": "interv_afgebroken", "comparison": "==", "values": [1]},
+      {"col": "terminatie_device", "comparison": "!=", "values": [0, ""]}
+    ],
+    "future_value": -1
+  },
+  {
+    "name": "PMICD_Rule_Interventie_Afgebroken_terminatie_device_code",
+    "order": 8,
+    "cols_to_change": ["terminatie_device_code"],
+    "lookup_conditions": [
+      {"col": "interv_afgebroken", "comparison": "==", "values": [1]},
+      {"col": "terminatie_device_code", "comparison": "!=", "values": [0, ""]}
+    ],
+    "future_value": -1
+  },
+  {
+    "name": "PMICD_Rule_Interventie_Afgebroken_terminatie_reden",
+    "order": 8,
+    "cols_to_change": ["terminatie_reden"],
+    "lookup_conditions": [
+      {"col": "interv_afgebroken", "comparison": "==", "values": [1]},
+      {"col": "terminatie_reden", "comparison": "!=", "values": [0, ""]}
+    ],
+    "future_value": -1
+  },
+  {
+    "name": "PMICD_Rule_Interventie_Afgebroken_ICD_PMfunctie",
+    "order": 8,
+    "cols_to_change": ["ICD_PMfunctie"],
+    "lookup_conditions": [
+      {"col": "interv_afgebroken", "comparison": "==", "values": [1]},
+      {"col": "ICD_PMfunctie", "comparison": "!=", "values": [0, ""]}
+    ],
+    "future_value": -1
+  },
+   {
+    "name": "PMICD_Rule_TypeIngreep_Zonder_Device",
+    "order": 9,
+    "cols_to_change": ["terminatie_reden"],
+    "lookup_conditions": [
+      {"col": "impl_device", "comparison": "!=", "values": [0]},
+      {"col": "type_ingreep_device", "comparison": "!=", "values": [0,20,40,90]}
+    ],
+    "future_value": -1
+  },
+  {
+    "name": "PMICD_Rule_TypeIngreep_Met_Device",
+    "order":9,
+    "cols_to_change": ["type_ingreep_device"],
+    "lookup_conditions": [
+      {"col": "impl_device", "comparison": "==", "values": [0]},
+      {"col": "type_ingreep_device", "comparison": "==", "values": [10,30,50]}
+    ],
+    "future_value": -1
+  },
+  {
+    "name": "PMICD_Rule_LeadCodeEnType_Leeg1",
+    "order": 10,
+    "cols_to_change": ["lead_type1", "lead_code1"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep1", "comparison": "==", "values": [""]}
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "PMICD_Rule_LeadCodeEnType_Leeg2",
+    "order": 11,
+    "cols_to_change": ["lead_type2", "lead_code2"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep2", "comparison": "==", "values": [""]}
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "PMICD_Rule_LeadCodeEnType_Leeg3",
+    "order": 12,
+    "cols_to_change": ["lead_type3", "lead_code3"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep3", "comparison": "==", "values": [""]}
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "PMICD_Rule_LeadCodeEnType_Leeg4",
+    "order": 13,
+    "cols_to_change": ["lead_type4", "lead_code4"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep4", "comparison": "==", "values": [""]}
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "PMICD_Rule_LeadCodeEnType_Leeg5",
+    "order": 14,
+    "cols_to_change": ["lead_type5", "lead_code5"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep5", "comparison": "==", "values": [""]}
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "PMICD_Rule_LeadCodeEnType_Leeg6",
+    "order": 15,
+    "cols_to_change": ["lead_type6", "lead_code6"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep6", "comparison": "==", "values": [""]}
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "PMICD_Rule_LeadCodeEnType_Leeg7",
+    "order": 16,
+    "cols_to_change": ["lead_type7", "lead_code7"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep7", "comparison": "==", "values": [""]}
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "PMICD_Rule_LeadRedenTerminatie1",
+    "order": 17,
+    "cols_to_change": ["lead_terminatie_reden1"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep1", "comparison": "!=", "values": [20, 30, 31, 39]}
+    ],
+    "future_value": ""
+  },
+    {
+    "name": "PMICD_Rule_LeadRedenTerminatie1",
+    "order": 17,
+    "cols_to_change": ["lead_terminatie_reden1"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep1", "comparison": "==", "values": [20, 30, 31, 39]},
+       {"col": "lead_terminatie_reden1", "comparison": "==", "values": [""]}
+    ],
+    "future_value": "Explant/Deactivatie"
+  },
+  {
+    "name": "PMICD_Rule_LeadRedenTerminatie2",
+    "order": 18,
+    "cols_to_change": ["lead_terminatie_reden2"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep2", "comparison": "!=", "values": [20, 30, 31, 39]}
+    ],
+    "future_value": ""
+  },
+      {
+    "name": "PMICD_Rule_LeadRedenTerminatie2",
+    "order": 18,
+    "cols_to_change": ["lead_terminatie_reden2"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep2", "comparison": "==", "values": [""]}
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "PMICD_Rule_LeadRedenTerminatie3",
+    "order": 19,
+    "cols_to_change": ["lead_terminatie_reden3"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep3", "comparison": "!=", "values": [20, 30, 31, 39]}
+    ],
+    "future_value": ""
+  },
+      {
+    "name": "PMICD_Rule_LeadRedenTerminatie3",
+    "order": 19,
+    "cols_to_change": ["lead_terminatie_reden3"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep3", "comparison": "==", "values": [""]}
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "PMICD_Rule_LeadRedenTerminatie4",
+    "order": 20,
+    "cols_to_change": ["lead_terminatie_reden4"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep4", "comparison": "!=", "values": [20, 30, 31, 39]}
+    ],
+    "future_value": ""
+  },
+      {
+    "name": "PMICD_Rule_LeadRedenTerminatie4",
+    "order": 20,
+    "cols_to_change": ["lead_terminatie_reden4"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep4", "comparison": "==", "values": [""]}
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "PMICD_Rule_LeadRedenTerminatie5",
+    "order": 21,
+    "cols_to_change": ["lead_terminatie_reden5"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep5", "comparison": "!=", "values": [20, 30, 31, 39]}
+    ],
+    "future_value": ""
+  },
+      {
+    "name": "PMICD_Rule_LeadRedenTerminatie5",
+    "order": 21,
+    "cols_to_change": ["lead_terminatie_reden5"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep5", "comparison": "==", "values": [""]}
+    ],
+    "future_value": ""
+  },
+
+  {
+    "name": "PMICD_Rule_LeadRedenTerminatie6",
+    "order": 22,
+    "cols_to_change": ["lead_terminatie_reden6"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep6", "comparison": "!=", "values": [20, 30, 31, 39]}
+    ],
+    "future_value": ""
+  },
+      {
+    "name": "PMICD_Rule_LeadRedenTerminatie6",
+    "order": 22,
+    "cols_to_change": ["lead_terminatie_reden6"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep6", "comparison": "==", "values": [""]}
+    ],
+    "future_value": ""
+  },
+  {
+    "name": "PMICD_Rule_LeadRedenTerminatie7",
+    "order": 23,
+    "cols_to_change": ["lead_terminatie_reden7"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep7", "comparison": "!=", "values": [20, 30, 31, 39]}
+    ],
+    "future_value": ""
+  },
+    {
+    "name": "PMICD_Rule_LeadRedenTerminatie7",
+    "order": 23,
+    "cols_to_change": ["lead_terminatie_reden7"],
+    "lookup_conditions": [
+      {"col": "lead_ingreep7", "comparison": "==", "values": [""]}
+    ],
+    "future_value": ""
+  }
+]
+

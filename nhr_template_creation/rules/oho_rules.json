@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Datum_Rule",
+    "order": 1,
+    "cols_to_change": [
+      "accept_datum"
+    ],
+    "lookup_conditions": [
+      {
+        "col": "accept_datum",
+        "comparison": "==",
+        "values": [
+          -1]
+      }
+        ],
+    "future_value": ""
+  },
+  {
+  "name": "AortaChir_Rule",
+  "order": 2,
+  "cols_to_change": [
+    "aortachir_benadering",
+    "aorta_asc",
+    "aortaboog",
+    "aortaboog_path",
+    "aorta_desc",
+    "aorta_desc_path"
+  ],
+  "lookup_conditions": [
+    {"col": "aortachir", "comparison": "==", "values": [0]}
+  ],
+  "future_value": 0
+}]

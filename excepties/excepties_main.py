@@ -1,6 +1,6 @@
 import pandas as pd
 import re
-from excp_pt3 import *
+from excepties.excp_pt3 import *
 import sys
 from pathlib import Path
 import shutil
@@ -26,8 +26,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     file_path = sys.argv[1]
-    all_data_df = {"ABL_NHR_Template": pd.read_excel(file_path, sheet_name="ABL NHR template", header=6),
-                   #ervanuitgaande dat het bestand beide sheets bevat
+    all_data_df = {"ABL_NHR_Template": pd.read_excel(file_path, sheet_name="ABL NHR template", header=6), #ervanuitgaande dat het bestand beide sheets bevat
                    "Excepties": pd.read_excel(file_path, sheet_name="Excepties")
                    }
     nhr_data = all_data_df['ABL_NHR_Template'] #want hier worden de rules toegepast dus NADAT de rules zijn toegepast
