@@ -82,7 +82,8 @@ def extract_exceptions_incremental(
         new_rows = result_df.copy()
 
     if not new_rows.empty:
-        all_cols = sorted(set(existing_df.columns).union(new_rows.columns))
+        # volgorde volgens desired_cols behouden
+        all_cols = desired_cols + [c for c in existing_df.columns if c not in desired_cols]
         existing_df = existing_df.reindex(columns=all_cols, fill_value="")
         new_rows = new_rows.reindex(columns=all_cols, fill_value="")
         combined = pd.concat([existing_df, new_rows], ignore_index=True)
