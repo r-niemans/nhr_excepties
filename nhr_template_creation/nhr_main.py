@@ -15,6 +15,6 @@ def run_nhr_main(dataset_key):
         nhr_df.apply_json_rules(cohort_key["json_rules"])
     nhr_df.export_file()
 
-    print(f"NHR-template gemaakt voor {dataset_key}")
-    return f"Bestand opgeslagen: {cohort_key['output_file']}"
+    print(f"NHR incl. Rules gemaakt voor {dataset_key}")
+    return f"Bestand opgeslagen: {cohort_key['original_file']}"
 

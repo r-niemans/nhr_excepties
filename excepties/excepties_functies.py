@@ -28,11 +28,15 @@ def extract_exceptions_incremental(
 ) -> pd.DataFrame:
 
     id_cols = ["pat_nr", "interv_nr", "interv_datum"]
-    missing = [c for c in id_cols if c not in df.columns]
-    if missing:
-        raise ValueError(f"Input df mist kolom: {missing}")
 
-    value_cols = [c for c in df.columns if c not in id_cols]
+    id_cols = [c for c in id_cols if isinstance(c, str) and c in df.columns]
+    if not id_cols:
+        raise ValueError(f"Geen geldige ID kolommen gevonden in df.columns = {list(df.columns)[:10]}")
+
+    value_cols = [c for c in df.columns if isinstance(c, str) and c not in id_cols]
+    if not value_cols:
+        raise ValueError("Geen value_cols beschikbaar om te mappen/melten.")
+
     melted = df.melt(
         id_vars=id_cols,
         value_vars=value_cols,
@@ -40,9 +44,13 @@ def extract_exceptions_incremental(
         value_name="Origineel_resultaat",
     )
 
-    # Haal -1 waarden eruit
-    is_exception = melted["Origineel_resultaat"].isin([-1, "-1"])
+    melted["Origineel_resultaat_num"] = pd.to_numeric(
+        melted["Origineel_resultaat"], errors="coerce"
+    )
+
+    is_exception = melted["Origineel_resultaat_num"] == -1
     result_df = melted.loc[is_exception].copy()
+    result_df = result_df.drop(columns=["Origineel_resultaat_num"], errors="ignore")
 
     if result_df.empty:
         print("Geen -1 excepties gevonden.")
@@ -64,7 +72,7 @@ def extract_exceptions_incremental(
 
     try:
         existing_df = pd.read_excel(existing_wb_path, sheet_name=sheet_name)
-    except Exception(BaseException):
+    except Exception:
         print("Lege/ongeldige Excepties-sheet, maak nieuwe structuur aan.")
         existing_df = pd.DataFrame(columns=result_df.columns)
 
@@ -88,17 +96,16 @@ def extract_exceptions_incremental(
         new_rows = new_rows.reindex(columns=all_cols, fill_value="")
         combined = pd.concat([existing_df, new_rows], ignore_index=True)
 
-        # dubbele ID's verwijderen
         if not combined["ID vLookup"].is_unique:
             dupes = combined.loc[combined["ID vLookup"].duplicated(), "ID vLookup"].unique()
             warnings.warn(
-                f"{len(dupes)} dubbele ID vLookup-waarden gevonden! "
+                f"{len(dupes)} dubbele ID vLookup-waarden gevonden"
             )
 
         with pd.ExcelWriter(existing_wb_path, mode="a", engine="openpyxl", if_sheet_exists="replace") as writer:
             combined.to_excel(writer, sheet_name=sheet_name, index=False)
 
-        print(f"{len(new_rows)} nieuwe rijen toegevoegd aan '{sheet_name}'.")
+        print(f"{len(new_rows)} nieuwe rijen toegevoegd aan '{sheet_name}'")
     else:
-        print("Geen nieuwe rijen om toe te voegen.")
+        print("Geen nieuwe rijen om toe te voegen")
     return result_df
