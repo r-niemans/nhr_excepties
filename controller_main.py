@@ -2,17 +2,17 @@ import tkinter as tk
 from tkinter import messagebox
 from config.datasets_config import cohort_paths
 from nhr_template_creation.nhr_main import run_nhr_main
-from excepties.excepties_main2 import run_exceptions
-
+from excepties.excepties_main import run_exceptions
+import traceback
 
 # ---------- functies ----------
 def run_nhr(dataset_key):
-    """Draait alleen de NHR-template pipeline."""
+    """Output: alleen de NHR-template"""
     msg = run_nhr_main(dataset_key)
     messagebox.showinfo("Klaar", f"NHR-template voltooid voor {dataset_key}\n\n{msg}")
 
 def run_excepties(dataset_key):
-    """Draait alleen de excepties pipeline."""
+    """Output: alleen excepties """
     run_exceptions(dataset_key)
     messagebox.showinfo("Klaar", f"Excepties verwerkt voor {dataset_key}")
 
@@ -25,7 +25,7 @@ def run_full(dataset_key):
 
 # ---------- GUI ----------
 root = tk.Tk()
-root.title("NHR Automatisering Launcher")
+root.title("NHR Automatisering")
 root.geometry("460x340")
 root.resizable(False, False)
 
@@ -54,7 +54,7 @@ def execute():
     selected_action = action_box.get(tk.ACTIVE)
 
     if not selected_cohort:
-        messagebox.showwarning("Selectie", "⚠️ Kies eerst een cohort.")
+        messagebox.showwarning("Selectie", "Kies eerst een cohort.")
         return
 
     try:
@@ -65,13 +65,15 @@ def execute():
         elif selected_action == "Volledige flow":
             run_full(selected_cohort)
     except Exception as e:
-        messagebox.showerror("Fout", f"Er ging iets mis bij {selected_cohort}:\n\n{e}")
+            tb = traceback.format_exc()
+            print(f"Fout bij {selected_cohort}:\n{tb}")  # ← print volledige traceback naar console
+            messagebox.showerror("Fout", f"Er ging iets mis bij {selected_cohort}:\n\n{tb}")
 
 
 tk.Button(root, text="▶ Run selectie", command=execute,
           width=20, bg="#2196F3", fg="white").pack(pady=15)
 
-tk.Label(root, text="NHR & Excepties automatisering – CHVC MUMC+",
-         font=("Segoe UI", 9, "italic")).pack(side="bottom", pady=6)
+tk.Label(root, text="NHR & Excepties HVC",
+         font=("Segoe UI", 9, "italic")).pack(side="bottom", pady=4)
 
 root.mainloop()

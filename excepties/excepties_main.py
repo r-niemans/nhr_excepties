@@ -1,35 +1,37 @@
-import pandas as pd
-import re
-from excepties.excp_pt3 import *
 import sys
+import pandas as pd
 from pathlib import Path
-import shutil
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+from config.datasets_config import cohort_paths
+from excepties.excepties_functies import extract_exceptions_incremental
 
-"""
-run in terminal middels het volgende:
-python excepties\\excepties_main.py 'L:\\CVPZ\\CHVC\\MANAGEMENT\\BIM\\Python_Programmas\\ablaties\\ABL_Epic_Verrichtingen_CAR.xlsx' 'L:\\CVPZ\\CHVC\\MANAGEMENT\\BIM\\Python_Programmas\\ablaties\\exceptions_df.xlsx'
-"""
 
-source = r"L:\CVPZ\CHVC\MANAGEMENT\BIM\Epic\01_ABL_Epic_Verrichtingen_CAR.xlsx"
-target = r"L:\CVPZ\CHVC\MANAGEMENT\BIM\Python_Programmas\ablaties\ABL_Epic_Verrichtingen_CAR.xlsx"
+def run_exceptions(dataset_key: str):
+    cfg = cohort_paths[dataset_key]
+    file_path = cfg["original_file"]
+    sheet = cfg["sheet_name"]
+    header_row = cfg["header_row"]
 
-shutil.copy(source, target) #kopieer de meest recente versie van de originele verrichtingen file naar de folder
+    print(f"Lees NHR-template voor {dataset_key}: sheet='{sheet}', header={header_row}")
 
-directory = Path(r'L:\CVPZ\CHVC\MANAGEMENT\BIM\Epic')
-#path_matches = list(directory.glob("*Epic_Verrichtingen_CAR*.xlsx"))
-#user_input = input("Voor welk cohort moeten excepties worden opgehaald?") -> ABL, PCI, PMICD, OHO, THI
-#input_path = [file for file in path_matches if "{user_input}" in path_matches]
+    nhr_data_df = pd.read_excel(file_path, sheet_name=sheet, header=header_row)
+
+    print("Haal nieuwe excepties op")
+    result_df = extract_exceptions_incremental(nhr_data_df, existing_wb_path=file_path)
+
+    print(f"Excepties verwerkt en opgeslagen in '{file_path.name}' (sheet='Excepties')")
+
+    return result_df
+
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2: #moet eig < 3 zijn
-        print("Gebruik in terminal als volgt: python excepties_main.py <excel_input_path> <excel_output_path>")
+    if len(sys.argv) < 2:
+        print("Gebruik: python excepties_main.py <dataset>")
         sys.exit(1)
 
-    file_path = sys.argv[1]
-    all_data_df = {"ABL_NHR_Template": pd.read_excel(file_path, sheet_name="ABL NHR template", header=6), #ervanuitgaande dat het bestand beide sheets bevat
-                   "Excepties": pd.read_excel(file_path, sheet_name="Excepties")
-                   }
-    nhr_data = all_data_df['ABL_NHR_Template'] #want hier worden de rules toegepast dus NADAT de rules zijn toegepast
-    excepties = all_data_df['Excepties']
-    result_df = extract_exceptions_incremental(nhr_data, existing_wb_path= file_path)
+    dataset_key = sys.argv[1].upper()
+    if dataset_key not in cohort_paths:
+        print(f"Onbekende dataset: {dataset_key}")
+        sys.exit(1)
 
+    run_exceptions(dataset_key)

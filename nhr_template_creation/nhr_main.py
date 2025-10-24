@@ -8,19 +8,13 @@ pd.set_option('future.no_silent_downcasting', True)
 def run_nhr_main(dataset_key):
     cohort_key = cohort_paths[dataset_key]
 
-    nhr_df = NHRDataFrame(excel_input_path=cohort_key["input_file"], excel_output_path=cohort_key["output_file"], sheet_name=cohort_key["sheet_name"]) # output_file hier moet veranderd worden naar input_file aangezien het in dezelfde workbook terecht moet komen
-    nhr_df.apply_json_rules(cohort_key["json_rules"])
-    nhr_df.export_file(cohort_key["sheet_name"])
+    nhr_df = NHRDataFrame(excel_path=cohort_key["original_file"],
+                          sheet_name=cohort_key["sheet_name"],
+                          header_row=cohort_key["header_row"])
+    if dataset_key != "THI":
+        nhr_df.apply_json_rules(cohort_key["json_rules"])
+    nhr_df.export_file()
 
-    print(f"✅ NHR-template voltooid voor {dataset_key}")
+    print(f"NHR-template gemaakt voor {dataset_key}")
     return f"Bestand opgeslagen: {cohort_key['output_file']}"
 
-
-def main():
-    # alleen nodig als je het wilt testen voor een cohort
-    dataset_key = "ABL"
-    run_nhr_main(dataset_key)
-
-
-if __name__ == "__main__":
-    main()

@@ -4,7 +4,7 @@
     "order": 1,
     "cols_to_change": [
       "ICD_preventie",
-      "ICD_PMfunctie"
+      "ICD_PM_indicatie"
     ],
     "lookup_conditions": [
       {
@@ -19,20 +19,20 @@
   {
     "name": "PMICD_Rule_Pacemaker_Interventie_1",
     "order": 2,
-    "cols_to_change": ["sinus_disfunctie", "AV_block", "hartfalen"],
+    "cols_to_change": ["sinus_disfunctie", "AV_block"],
     "lookup_conditions": [
       {"col": "impl_device", "comparison": "!=", "values": [10]},
-      {"col": "ICD_PMfunctie", "comparison": "!=", "values": [20]}
+      {"col": "ICD_PM_indicatie", "comparison": "!=", "values": [20]}
     ],
     "future_value": ""
   },
   {
     "name": "PMICD_Rule_Pacemaker_Interventie_2",
     "order": 3,
-    "cols_to_change": ["sinus_disfunctie", "AV_block", "hartfalen"],
+    "cols_to_change": ["sinus_disfunctie", "AV_block"],
     "lookup_conditions": [
       {"col": "impl_device", "comparison": "!=", "values": [20]},
-      {"col": "ICD_PMfunctie", "comparison": "!=", "values": [20]}
+      {"col": "ICD_PM_indicatie", "comparison": "!=", "values": [20]}
     ],
     "future_value": ""
   },
@@ -113,12 +113,12 @@
     "future_value": -1
   },
   {
-    "name": "PMICD_Rule_Interventie_Afgebroken_ICD_PMfunctie",
+    "name": "PMICD_Rule_Interventie_Afgebroken_ICD_PM_indicatie",
     "order": 8,
-    "cols_to_change": ["ICD_PMfunctie"],
+    "cols_to_change": ["ICD_PM_indicatie"],
     "lookup_conditions": [
       {"col": "interv_afgebroken", "comparison": "==", "values": [1]},
-      {"col": "ICD_PMfunctie", "comparison": "!=", "values": [0, ""]}
+      {"col": "ICD_PM_indicatie", "comparison": "!=", "values": [0, ""]}
     ],
     "future_value": -1
   },

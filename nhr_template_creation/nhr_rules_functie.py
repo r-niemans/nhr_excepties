@@ -32,7 +32,7 @@ def apply_rule(df: pd.DataFrame, rule: Dict) -> pd.Series:
         for v in vals:
             try:
                 v = int(v)
-            except Exception(TypeError):
+            except (TypeError,ValueError):
                 pass
             col_mask |= func(col_series, v)
 
@@ -46,11 +46,9 @@ def apply_rule(df: pd.DataFrame, rule: Dict) -> pd.Series:
     for col in rule["cols_to_change"]:
         current_dtype = df[col].dtype
 
-        # case 1: numeric column + numeric value
         if pd.api.types.is_numeric_dtype(current_dtype) and isinstance(fv, (int, float, np.number)):
             df.loc[mask, col] = np.float64(fv)
 
-        # case 2: numeric column + string future value (e.g. "")
         elif pd.api.types.is_numeric_dtype(current_dtype) and isinstance(fv, str):
             df[col] = df[col].astype("object")
             df.loc[mask, col] = fv
