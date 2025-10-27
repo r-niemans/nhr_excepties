@@ -2,7 +2,6 @@ import re
 import traceback
 import warnings
 import pandas as pd
-import xlwings as xw
 
 
 def prep_df(df: pd.DataFrame) -> pd.DataFrame:
@@ -10,15 +9,7 @@ def prep_df(df: pd.DataFrame) -> pd.DataFrame:
         df[col] = pd.to_datetime(df[col], dayfirst=True, errors='coerce')
         df[col] = df[col].dt.strftime("%d-%m-%Y").fillna("")
     df["logboeknr"] = df["interv_nr"].astype(str).str.replace(r"\D", "", regex=True)
-    df["Key"] = (
-        df["pat_nr"].astype(str)
-        + "_"
-        + df["logboeknr"].astype(str)
-        + "_"
-        + df["interv_datum"]
-    )
-    reorder_cols = ["Key", "logboeknr"]
-    df = df[reorder_cols + [c for c in df.columns if c not in reorder_cols]]
+    df["Key"] = (df["pat_nr"].astype(str) + "_" + df["logboeknr"].astype(str) + "_" + df["interv_datum"])
     return df
 
 def extract_exceptions_incremental(
@@ -37,6 +28,7 @@ def extract_exceptions_incremental(
     if not value_cols:
         raise ValueError("Geen value_cols beschikbaar om te mappen/melten.")
 
+    # herstructureert de rijen o.b.v. de exceptiewaarden die gevonden zijn in 'Origineel_resultaat' kolom
     melted = df.melt(
         id_vars=id_cols,
         value_vars=value_cols,
@@ -53,7 +45,7 @@ def extract_exceptions_incremental(
     result_df = result_df.drop(columns=["Origineel_resultaat_num"], errors="ignore")
 
     if result_df.empty:
-        print("Geen -1 excepties gevonden.")
+        print("Geen excepties gevonden.")
         return pd.DataFrame()
 
     result_df = prep_df(result_df)
