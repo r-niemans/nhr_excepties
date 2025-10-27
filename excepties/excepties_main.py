@@ -1,7 +1,7 @@
 import sys
 import pandas as pd
 from pathlib import Path
-sys.path.append(str(Path(__file__).resolve().parents[1]))
+sys.path.append(str(Path(__file__).resolve().parents[1])) # gebruik correcte directory 
 from config.datasets_config import cohort_paths
 from excepties.excepties_functies import extract_exceptions_incremental
 
@@ -19,7 +19,6 @@ def run_exceptions(dataset_key: str, var_type: str = "Interventievariabelen"):
         print(f"Gebruik kolomlijst: {kolomlijst_file}")
         kolommen = pd.read_excel(kolomlijst_file)
 
-        # Regex to classify columns
         pattern = r"interv" if "Interventie" in var_type else r"followup"
         kolommen = kolommen[kolommen["Bron"].astype(str).str.contains(pattern, case=False, na=False)]
 
@@ -28,10 +27,10 @@ def run_exceptions(dataset_key: str, var_type: str = "Interventievariabelen"):
 
         print(f"Geselecteerde kolommen voor {var_type}: {len(relevant_cols)} gevonden.")
         nhr_data_df = nhr_data_df[["pat_nr", "interv_nr", "interv_datum"] + relevant_cols]
-        # Remove duplicate column names — keeps first occurrence only
+        # Behoud eerste kolom als er duplicates zijn
         nhr_data_df = nhr_data_df.loc[:, ~nhr_data_df.columns.duplicated()].copy()
 
-        # Flatten MultiIndex (if it exists)
+        # Haal MultIndex weg 
         if isinstance(nhr_data_df.columns, pd.MultiIndex):
             nhr_data_df.columns = ['_'.join(map(str, col)).strip() for col in nhr_data_df.columns]
 
@@ -42,7 +41,6 @@ def run_exceptions(dataset_key: str, var_type: str = "Interventievariabelen"):
 
     print(f"Excepties verwerkt en opgeslagen in '{file_path.name}' (sheet='Excepties')")
     return result_df
-
 
 
 if __name__ == "__main__":
