@@ -1,8 +1,5 @@
 # Automatisering excepties extrahering uit NHR data en preparatie van NHR data 
 
-
-NHR Excepties
----
 Middels dit project kunnen er twee bewerkingen worden gedaan in een gekozen Excelbestand: checken en extraheren van excepties (-1 waarden) en 
 het toepassen van rules die belangrijk zijn voor de correcte aanlevering van data aan de NHR.
 
@@ -48,14 +45,16 @@ het toepassen van rules die belangrijk zijn voor de correcte aanlevering van dat
     # 3) Run het hoofdscript 
     python controller_main.py
 
-    # 4) Verifieer de Excel file en of het 'Excepties' en/of 'NHR_Incl_Rules' tabblad is aangepast/toegevoegd.
+    # 4) Verifieer of het programma correct heeft gelopen door in de Excel file te checken of het 'Excepties' / 'NHR_Incl_Rules' tabblad is aangepast/toegevoegd en 
+    ook is opgeslagen.
 
 ---
 
 ## De werking per script
 
-De main scripts voeren alles uit. Het belangrijkste script is het controller main script. Dit voert dan weer het `excepties_main.py` of het `nhr_main.py` script uit, of beide, afhankelijk van de keuze die je maakt in het tkinter pop-up menu.
+De main scripts voeren alles uit. Het belangrijkste script is het controller main script, zoals de naam al zegt bestuurt dit script de hele workflow. Dit voert namelijk weer het `excepties_main.py` of het `nhr_main.py` script uit, of beide, afhankelijk van de keuze die je maakt in het tkinter pop-up menu.
 In deze tweede scripts worden functies getriggerd die in `excepties_functies.py`, `nhr_template_class` en `nhr_rules_functie.py` staan. In principe heb je dus de volgende pipeline: 
+
 ## Workflow 
 
 ```mermaid
@@ -93,9 +92,10 @@ flowchart TD
 ## Nog belangrijk
 
 - Gebruik consistente namen binnen Excel voor ieder cohort. Geef headers en sheets dezelfde namen, zet de headers op dezelfde rij neer bij iedere Verrichtingen file. Gebruik het liefste geen spaties bij naamgeving, maar hou het bij '_' of CamelCaseTyping.
-- Blijf xlwings gebruiken om dus GEEN formules en PowerQueries kwijt te raken
+- Blijf xlwings gebruiken om te vermijden dat formules en PowerQueries verloren gaan.
 - Als de versie van de NHR handboeken veranderd, moet dit in de `config/datasets_config` file worden veranderd, aangezien de interventie - en follow-up variabelen vanuit het hard gecodeerde pad worden ingeladen.  
-- Link naar OneNote om 'tkinter' error eventueel te verhelpen :https://mumc.sharepoint.com/sites/HVCBIMteam/SiteAssets/HVC%20BIM%20team%20Notitieblok/Python.one#Tkinter/Tcel%20error%20fix&section-id={09D8859D-6AD6-4A9D-9CA8-03B48B7EDB4C}&page-id={015A0740-5530-4601-8A2A-3DD690B40D5C}&end
+- Link naar OneNote om 'tkinter' error eventueel te verhelpen: HVC BIM team Notitieblok / Python tabblad / Tkinter Tcel error fix
+
 
 ---
 
